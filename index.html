@@ -1,0 +1,686 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gbemisola Odekeye · Virtual Assistant</title>
+    <meta name="description"
+        content="Virtual Assistant &amp; Executive Admin helping founders scale through reliable administrative systems." />
+
+    <!-- Open Graph / Social Media Preview -->
+    <meta property="og:title" content="Gbemisola Odekeye · Virtual Assistant" />
+    <meta property="og:description"
+        content="Virtual Assistant &amp; Executive Admin helping founders scale through reliable administrative systems." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://debbydollars.github.io/portfolio/" />
+    <meta property="og:image" content="https://debbydollars.github.io/portfolio/assets/og-image.jpg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Gbemisola Odekeye - Virtual Assistant Portfolio" />
+    <meta property="og:site_name" content="Gbemisola Odekeye · Virtual Assistant" />
+    <meta property="og:locale" content="en_US" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Gbemisola Odekeye · Virtual Assistant" />
+    <meta name="twitter:description"
+        content="Virtual Assistant &amp; Executive Admin helping founders scale through reliable administrative systems." />
+    <meta name="twitter:image" content="https://debbydollars.github.io/portfolio/assets/og-image.jpg" />
+    <meta name="twitter:image:alt" content="Gbemisola Odekeye - Virtual Assistant Portfolio" />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" sizes="16x16" href="./assets/favicon-16x16.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="./assets/favicon-32x32.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="./assets/apple-touch-icon.png" />
+    <link rel="manifest" href="./assets/site.webmanifest" />
+
+    <!-- Preload hero image -->
+    <link rel="preload" as="image" href="./assets/gbemi.jpg" fetchpriority="high" />
+
+    <!-- Font Awesome 6 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&display=swap"
+        rel="stylesheet" />
+
+    <!-- Lenis Smooth Scroll -->
+    <link rel="stylesheet" href="https://unpkg.com/lenis@1.1.13/dist/lenis.css" />
+
+    <link rel="stylesheet" href="./style.css" />
+</head>
+
+<body>
+
+    <!-- =============================================
+    NOISE / GRAIN OVERLAY
+    ============================================= -->
+    <div class="noise-overlay"></div>
+
+    <!-- =============================================
+    CUSTOM CURSOR (Glow Ring)
+    ============================================= -->
+    <div class="cursor-glow" id="cursorGlow"></div>
+    <div class="cursor-dot" id="cursorDot"></div>
+
+    <!-- =============================================
+    NAVIGATION (Glassmorphism)
+    ============================================= -->
+    <nav class="navbar glass-nav" id="navbar">
+        <div class="container nav-container">
+            <div class="logo">Gbemisola<span>.</span></div>
+            <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+                <span></span><span></span><span></span>
+            </button>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#about">About</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#work">Work</a></li>
+                <li><a href="#testimonials">Testimonials</a></li>
+                <li><a href="#booking">Book</a></li>
+                <li><a href="#connect">Connect</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- =============================================
+    HERO (Image Frame on Left)
+    ============================================= -->
+    <section class="hero" id="hero">
+        <!-- Animated Blob Background -->
+        <div class="blob-container">
+            <svg class="blob-svg" viewBox="0 0 800 800" xmlns="http://www.w3.org/2000/svg">
+                <path class="blob-path"
+                    d="M 400 100 C 600 80 700 300 650 500 C 600 700 400 750 200 700 C 50 650 20 400 100 200 C 150 50 300 120 400 100 Z"
+                    fill="url(#blobGradient)" opacity="0.6">
+                    <animate attributeName="d" dur="12s" repeatCount="indefinite"
+                        values="M 400 100 C 600 80 700 300 650 500 C 600 700 400 750 200 700 C 50 650 20 400 100 200 C 150 50 300 120 400 100 Z;
+                                M 350 120 C 550 60 720 280 680 520 C 620 720 380 780 180 680 C 30 620 10 380 120 180 C 180 40 280 140 350 120 Z;
+                                M 420 80 C 620 100 680 320 620 520 C 560 720 420 740 220 680 C 70 620 40 420 140 220 C 200 60 320 100 420 80 Z;
+                                M 400 100 C 600 80 700 300 650 500 C 600 700 400 750 200 700 C 50 650 20 400 100 200 C 150 50 300 120 400 100 Z" />
+                </path>
+                <defs>
+                    <radialGradient id="blobGradient" cx="50%" cy="50%" r="50%">
+                        <stop offset="0%" stop-color="#C97B63" stop-opacity="0.25" />
+                        <stop offset="100%" stop-color="#8FAD9A" stop-opacity="0.05" />
+                    </radialGradient>
+                </defs>
+            </svg>
+        </div>
+
+        <div class="container hero-grid">
+            <div class="hero-visual">
+                <div class="hero-image-frame">
+                    <div class="image-wrapper">
+                        <img src="./assets/gbemi.jpg" alt="Gbemisola Odekeye - Virtual Assistant" class="hero-image" />
+                        <div class="image-overlay"></div>
+                    </div>
+                    <span class="corner-deco corner-tl">✦</span>
+                    <span class="corner-deco corner-tr">✦</span>
+                    <span class="corner-deco corner-bl">✦</span>
+                    <span class="corner-deco corner-br">✦</span>
+                </div>
+                <div class="hero-stats-row glass-card">
+                    <div class="stat" data-count="5">
+                        <strong id="stat1">0</strong>
+                        <span>Years Exp.</span>
+                    </div>
+                    <div class="divider"></div>
+                    <div class="stat" data-count="45">
+                        <strong id="stat2">0</strong>
+                        <span>Skills</span>
+                    </div>
+                    <div class="divider"></div>
+                    <div class="stat" data-count="3">
+                        <strong id="stat3">0</strong>
+                        <span>Orgs</span>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-content">
+                <span class="hero-badge">✦ Virtual Assistant / Executive Admin</span>
+                <h1>
+                    5+ Years of
+                    <span class="typewriter-text" id="typewriterText"></span>
+                    <span class="cursor-blink">|</span>
+                </h1>
+                <p class="hero-desc">Helping founders and teams scale through reliable administrative systems and
+                    strategic support.</p>
+                <div class="hero-actions">
+                    <a href="#booking" class="btn btn-primary magnetic">
+                        <i class="fas fa-calendar-check"></i> Book a consultation
+                    </a>
+                    <a href="#services" class="btn btn-outline magnetic">Explore services</a>
+                </div>
+                <div class="hero-tags">
+                    <span>✦ Operations</span>
+                    <span class="dot">·</span>
+                    <span>✦ Systems</span>
+                    <span class="dot">·</span>
+                    <span>✦ Efficiency</span>
+                    <span class="dot">·</span>
+                    <span>✦ Growth</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- =============================================
+    ABOUT (Glass Cards)
+    ============================================= -->
+    <section class="about" id="about">
+        <div class="container">
+            <div class="about-grid">
+                <div class="about-text reveal">
+                    <span class="section-tag">About</span>
+                    <h2 class="section-title">Building systems that <span>set you free</span></h2>
+                    <p>Highly organized administrative officer with over five years of experience providing
+                        administrative, front office and customer support across corporate and hospitality environments.
+                    </p>
+                    <p>I focus on delivering clear, empathetic, and professional support that builds trust and retains
+                        clients. From organizing chaotic emails to managing complex calendars, I bring structure to
+                        every task.</p>
+                    <p>I take a <strong>systems-first approach</strong> to my work, ensuring tasks are properly managed,
+                        documented, and followed through so your business runs smoothly — even when you're not there.
+                    </p>
+                    <div class="about-actions" style="display:flex; gap:12px; flex-wrap:wrap; margin-top:12px;">
+                        <a href="#booking" class="btn btn-sage magnetic">
+                            <i class="fas fa-calendar-check"></i> Book a consultation
+                        </a>
+                        <a href="./assets/Gbemi_Resume.pdf" download class="btn btn-outline magnetic">
+                            <i class="fas fa-file-pdf"></i> Download CV
+                        </a>
+                    </div>
+                </div>
+                <div class="about-cards">
+                    <div class="about-card glass-card reveal" data-delay="0.1">
+                        <h4><i class="fas fa-check-circle"></i> My Approach</h4>
+                        <p>Systems-first thinking with clear documentation, efficient workflows, and consistent
+                            follow-through on every detail.</p>
+                    </div>
+                    <div class="about-card glass-card reveal" data-delay="0.2">
+                        <h4><i class="fas fa-bullseye"></i> Who I Help</h4>
+                        <p>Founders, CEOs, and growing teams who need operational support to scale without burnout.</p>
+                    </div>
+                    <div class="about-card glass-card reveal" data-delay="0.3">
+                        <h4><i class="fas fa-star"></i> My Focus</h4>
+                        <p>Building reliable systems for task management, scheduling, communication, and documentation
+                            that keep everything running smoothly.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- =============================================
+    SERVICES (3-Column Grid)
+    ============================================= -->
+    <section class="services" id="services">
+        <div class="container">
+            <div class="services-header">
+                <div>
+                    <span class="section-tag">Services</span>
+                    <h2 class="section-title">What I <span>offer</span></h2>
+                    <p class="section-sub">Tailored administrative and operational support to help your business run
+                        smoothly.</p>
+                </div>
+                <a href="#booking" class="btn btn-outline magnetic" style="flex-shrink:0;">Book now →</a>
+            </div>
+            <div class="services-grid">
+                <div class="service-card glass-card reveal" data-delay="0.05">
+                    <span class="icon"><i class="fas fa-tasks"></i></span>
+                    <h3>Task &amp; Project Management</h3>
+                    <p>Organizing, prioritizing, and tracking projects across Asana, Trello, ClickUp, and Notion so
+                        nothing falls through the cracks.</p>
+                </div>
+                <div class="service-card glass-card reveal" data-delay="0.1">
+                    <span class="icon"><i class="fas fa-calendar-alt"></i></span>
+                    <h3>Executive Scheduling</h3>
+                    <p>Managing complex calendars, coordinating meetings, and optimizing schedules to maximize your
+                        productivity.</p>
+                </div>
+                <div class="service-card glass-card reveal" data-delay="0.15">
+                    <span class="icon"><i class="fas fa-envelope"></i></span>
+                    <h3>Inbox Management</h3>
+                    <p>Organizing and filtering your inbox with clear systems, labels, and templates for professional
+                        communication.</p>
+                </div>
+                <div class="service-card glass-card reveal" data-delay="0.2">
+                    <span class="icon"><i class="fas fa-file-alt"></i></span>
+                    <h3>SOP &amp; Documentation</h3>
+                    <p>Creating clear Standard Operating Procedures, onboarding documents, and process guides that make
+                        operations seamless.</p>
+                </div>
+                <div class="service-card glass-card reveal" data-delay="0.25">
+                    <span class="icon"><i class="fas fa-handshake"></i></span>
+                    <h3>Customer Relationship Management</h3>
+                    <p>Client support, retention strategies, and CRM tool management to build trust and grow
+                        relationships.</p>
+                </div>
+                <div class="service-card glass-card reveal" data-delay="0.3">
+                    <span class="icon"><i class="fas fa-clock"></i></span>
+                    <h3>Appointment Setting</h3>
+                    <p>Client call scheduling, meeting coordination, follow-ups, and calendar optimization.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- =============================================
+    SKILLS (Pill/Tag Style)
+    ============================================= -->
+    <section class="skills" id="skills">
+        <div class="container">
+            <div class="skills-header reveal">
+                <span class="section-tag">Expertise</span>
+                <h2 class="section-title">Tools I <span>master</span></h2>
+                <p class="section-sub">Each tool is a building block in creating organized, efficient workflows.
+                    <strong>Click any card to explore.</strong>
+                </p>
+            </div>
+            <div class="skills-grid reveal" data-delay="0.1">
+                <a href="#" class="skill-pill highlight" target="_blank" rel="noopener noreferrer"><i
+                        class="fas fa-star"></i> Executive Support</a>
+                <a href="#" class="skill-pill" target="_blank" rel="noopener noreferrer"><i class="fas fa-comments"></i>
+                    Virtual Assistance</a>
+                <a href="#" class="skill-pill" target="_blank" rel="noopener noreferrer"><i
+                        class="fas fa-handshake"></i> CRM Management</a>
+                <a href="#" class="skill-pill" target="_blank" rel="noopener noreferrer"><i class="fas fa-bolt"></i>
+                    Office Operations</a>
+                <a href="#" class="skill-pill" target="_blank" rel="noopener noreferrer"><i
+                        class="fas fa-search-plus"></i> Attention to Detail</a>
+                <a href="#" class="skill-pill" target="_blank" rel="noopener noreferrer"><i class="fas fa-trello"></i>
+                    Trello</a>
+                <a href="#" class="skill-pill" target="_blank" rel="noopener noreferrer"><i
+                        class="fas fa-list-check"></i> Asana</a>
+                <a href="#" class="skill-pill" target="_blank" rel="noopener noreferrer"><i
+                        class="fas fa-clipboard-list"></i> ClickUp</a>
+                <a href="#" class="skill-pill" target="_blank" rel="noopener noreferrer"><i class="fas fa-brain"></i>
+                    Notion</a>
+                <a href="#" class="skill-pill" target="_blank" rel="noopener noreferrer"><i class="fas fa-table"></i>
+                    Excel</a>
+                <a href="#" class="skill-pill" target="_blank" rel="noopener noreferrer"><i class="fas fa-google"></i>
+                    Google Workspace</a>
+                <a href="#" class="skill-pill" target="_blank" rel="noopener noreferrer"><i class="fas fa-bullhorn"></i>
+                    Slack</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- =============================================
+    WORK SAMPLES (Auto-Carousel - 9 cards at 5s)
+    ============================================= -->
+    <section class="work-carousel" id="work">
+        <div class="container">
+            <div class="work-header reveal">
+                <span class="section-tag">Portfolio</span>
+                <h2 class="section-title">Work <span>samples</span></h2>
+                <p class="section-sub">Real projects and operational systems I've designed for founders and growing
+                    teams.</p>
+            </div>
+
+            <div class="work-carousel-wrapper">
+                <div class="work-carousel-track" id="workTrack">
+                    <!-- Card 1 -->
+                    <div class="work-card spotlight-card">
+                        <img src="./assets/Trello_TaskBoard.jpg" alt="Trello Task Board" class="work-card-img" />
+                        <div class="work-overlay"></div>
+                        <div class="work-content">
+                            <span class="work-tag">Project Management</span>
+                            <h3>Trello Task Board</h3>
+                            <p>Built Trello board for team task tracking and prioritization</p>
+                            <a href="#" class="work-link">View sample →</a>
+                        </div>
+                    </div>
+                    <!-- Card 2 -->
+                    <div class="work-card spotlight-card">
+                        <img src="./assets/Client Tracker.png" alt="Client Tracker" class="work-card-img" />
+                        <div class="work-overlay"></div>
+                        <div class="work-content">
+                            <span class="work-tag">Client Management</span>
+                            <h3>Client Tracker</h3>
+                            <p>Implemented efficient client tracking system</p>
+                            <a href="#" class="work-link">View sample →</a>
+                        </div>
+                    </div>
+                    <!-- Card 3 -->
+                    <div class="work-card spotlight-card">
+                        <img src="./assets/calender_mgt.png" alt="Calendar Management" class="work-card-img" />
+                        <div class="work-overlay"></div>
+                        <div class="work-content">
+                            <span class="work-tag">Scheduling</span>
+                            <h3>Calendar Management System</h3>
+                            <p>Organized executive calendars for AVRS leadership team.</p>
+                            <a href="#" class="work-link">View sample →</a>
+                        </div>
+                    </div>
+                    <!-- Card 4 -->
+                    <div class="work-card spotlight-card">
+                        <img src="./assets/inbox_mgt.png" alt="Email Management" class="work-card-img" />
+                        <div class="work-overlay"></div>
+                        <div class="work-content">
+                            <span class="work-tag">Email Mgmt</span>
+                            <h3>Email Management Protocol</h3>
+                            <p>Reduced inbox clutter with filtering and categorization systems.</p>
+                            <a href="#" class="work-link">View sample →</a>
+                        </div>
+                    </div>
+                    <!-- Card 5 -->
+                    <div class="work-card spotlight-card">
+                        <img src="./assets/Client onboarding .png" alt="Client Onboarding" class="work-card-img" />
+                        <div class="work-overlay"></div>
+                        <div class="work-content">
+                            <span class="work-tag">Onboarding</span>
+                            <h3>Client Onboarding System</h3>
+                            <p>Designed seamless onboarding workflow with documentation.</p>
+                            <a href="#" class="work-link">View sample →</a>
+                        </div>
+                    </div>
+                    <!-- Card 6 -->
+                    <div class="work-card spotlight-card">
+                        <img src="./assets/weekly_team_task.jpg" alt="Weekly Team Task" class="work-card-img" />
+                        <div class="work-overlay"></div>
+                        <div class="work-content">
+                            <span class="work-tag">Task Mgmt</span>
+                            <h3>Weekly Team Task Dashboard</h3>
+                            <p>Built a Trello dashboard to track 20+ weekly tasks across a distributed team with clear
+                                priorities.</p>
+                            <a href="#" class="work-link">View sample →</a>
+                        </div>
+                    </div>
+                    <!-- Card 7 -->
+                    <div class="work-card spotlight-card">
+                        <img src="./assets/client_call_booking.jpg" alt="Client Call Booking" class="work-card-img" />
+                        <div class="work-overlay"></div>
+                        <div class="work-content">
+                            <span class="work-tag">Scheduling</span>
+                            <h3>Client Call Booking Flow</h3>
+                            <p>Designed a frictionless appointment booking system using Calendly + automated reminders.
+                            </p>
+                            <a href="#" class="work-link">View sample →</a>
+                        </div>
+                    </div>
+                    <!-- Card 8 -->
+                    <div class="work-card spotlight-card">
+                        <img src="./assets/social_media_content.jpg" alt="Social Calendar" class="work-card-img" />
+                        <div class="work-overlay"></div>
+                        <div class="work-content">
+                            <span class="work-tag">Content</span>
+                            <h3>Social Media Content Calendar</h3>
+                            <p>Planned 3‑month content schedule for brand consistency.</p>
+                            <a href="#" class="work-link">View sample →</a>
+                        </div>
+                    </div>
+                    <!-- Card 9 -->
+                    <div class="work-card spotlight-card">
+                        <img src="./assets/customer_support_playbook.jpg" alt="Customer Support Playbook"
+                            class="work-card-img" />
+                        <div class="work-overlay"></div>
+                        <div class="work-content">
+                            <span class="work-tag">SOP</span>
+                            <h3>Customer Support Playbook</h3>
+                            <p>Created a detailed support playbook with script templates, escalation paths, and response
+                                SLAs.</p>
+                            <a href="#" class="work-link">View sample →</a>
+                        </div>
+                    </div>
+                </div>
+
+                <button class="work-carousel-btn work-prev" id="workPrev" aria-label="Previous"><i
+                        class="fas fa-chevron-left"></i></button>
+                <button class="work-carousel-btn work-next" id="workNext" aria-label="Next"><i
+                        class="fas fa-chevron-right"></i></button>
+                <div class="work-carousel-dots" id="workDots"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- =============================================
+    TESTIMONIALS (Auto-Carousel - 10 cards at 3.5s)
+    ============================================= -->
+    <section class="testimonials" id="testimonials">
+        <div class="container">
+            <span class="section-tag reveal">Testimonials</span>
+            <h2 class="section-title reveal">What people <span>say</span></h2>
+            <p class="section-sub reveal" style="margin-bottom:28px;">Real feedback from founders and collaborators.</p>
+
+            <div class="testimonial-carousel">
+                <div class="carousel-track" id="carouselTrack">
+                    <div class="testimonial-card glass-card">
+                        <div class="quote">"</div>
+                        <p>Gbemisola transformed our administrative chaos into a streamlined system. Her attention to
+                            detail is unmatched.</p>
+                        <div class="author">
+                            <div class="initial">A</div>
+                            <div>
+                                <div class="name">Adeola O.</div>
+                                <div class="role">Founder, HerTech</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-card glass-card">
+                        <div class="quote">"</div>
+                        <p>Absolute lifesaver! She handles my executive calendar with such precision. I actually have
+                            time to think.</p>
+                        <div class="author">
+                            <div class="initial">B</div>
+                            <div>
+                                <div class="name">Bola K.</div>
+                                <div class="role">CEO, Bloom Collective</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-card glass-card">
+                        <div class="quote">"</div>
+                        <p>A true professional. Her CRM expertise helped us retain 90% of our clients in the first
+                            quarter.</p>
+                        <div class="author">
+                            <div class="initial">C</div>
+                            <div>
+                                <div class="name">Chioma E.</div>
+                                <div class="role">COO, SheVentures</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-card glass-card">
+                        <div class="quote">"</div>
+                        <p>She didn't just organize my inbox — she organized my entire business workflow. Game-changer.
+                        </p>
+                        <div class="author">
+                            <div class="initial">D</div>
+                            <div>
+                                <div class="name">Deborah A.</div>
+                                <div class="role">Founder, Alma Creative</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-card glass-card">
+                        <div class="quote">"</div>
+                        <p>I've seen her work firsthand. She's the most organized person I know. Every system she builds
+                            is bulletproof.</p>
+                        <div class="author">
+                            <div class="initial">E</div>
+                            <div>
+                                <div class="name">Ewomazino O.</div>
+                                <div class="role">Mutual Connection</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-card glass-card">
+                        <div class="quote">"</div>
+                        <p>Gbemisola's project management skills saved our team from missing 3 major deadlines. She's a
+                            gem.</p>
+                        <div class="author">
+                            <div class="initial">T</div>
+                            <div>
+                                <div class="name">Tunde B.</div>
+                                <div class="role">Operations Director</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-card glass-card">
+                        <div class="quote">"</div>
+                        <p>She managed our entire appointment booking system. No more double bookings!</p>
+                        <div class="author">
+                            <div class="initial">F</div>
+                            <div>
+                                <div class="name">Folake O.</div>
+                                <div class="role">CEO, SheSells</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-card glass-card">
+                        <div class="quote">"</div>
+                        <p>Her onboarding system made new hire integration so smooth. We use it as a template now.</p>
+                        <div class="author">
+                            <div class="initial">K</div>
+                            <div>
+                                <div class="name">Kemi A.</div>
+                                <div class="role">HR Manager</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-card glass-card">
+                        <div class="quote">"</div>
+                        <p>I've worked with many VAs, but Gbemisola's level of organization is on another level.</p>
+                        <div class="author">
+                            <div class="initial">M</div>
+                            <div>
+                                <div class="name">Michael O.</div>
+                                <div class="role">Team Lead</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-card glass-card">
+                        <div class="quote">"</div>
+                        <p>She took over our social media calendar and content planning. Our engagement went up 45%.</p>
+                        <div class="author">
+                            <div class="initial">N</div>
+                            <div>
+                                <div class="name">Ngozi E.</div>
+                                <div class="role">Founder, HerSpace</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-dots" id="carouselDots"></div>
+                <button class="carousel-btn carousel-prev" id="carouselPrev" aria-label="Previous">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <button class="carousel-btn carousel-next" id="carouselNext" aria-label="Next">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- =============================================
+    BOOKING (with Download CV button)
+    ============================================= -->
+    <section class="booking" id="booking">
+        <div class="container">
+            <div class="booking-card glass-card reveal">
+                <div class="booking-content">
+                    <span class="section-tag">Let's talk</span>
+                    <h2 class="section-title">Book a <span>consultation</span></h2>
+                    <p>Ready to get organized? Schedule a 1-on-1 consultation to discuss your business needs and how I
+                        can support you.</p>
+                </div>
+                <div class="booking-actions">
+                    <a href="https://calendar.app.google/7Mm3GnToAn3s9Hej7" target="_blank" rel="noopener noreferrer"
+                        class="btn btn-primary magnetic">
+                        <i class="fas fa-calendar-plus"></i> Schedule 1-on-1
+                    </a>
+                    <a href="https://wa.me/2349058577070" target="_blank" rel="noopener noreferrer"
+                        class="btn btn-whatsapp magnetic">
+                        <i class="fab fa-whatsapp"></i> Chat on WhatsApp
+                    </a>
+                    <a href="mailto:deborahodekeye2017@gmail.com" class="btn btn-outline magnetic">
+                        <i class="fas fa-envelope"></i> Email me
+                    </a>
+                    <a href="./assets/Gbemi_Resume.pdf" download class="btn btn-sage magnetic">
+                        <i class="fas fa-file-pdf"></i> Download CV
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- =============================================
+    CONNECT
+    ============================================= -->
+    <section class="connect" id="connect">
+        <div class="container">
+            <div class="connect-grid">
+                <div class="connect-content reveal">
+                    <span class="section-tag">Connect</span>
+                    <h2 class="section-title">Let's <span>work together</span></h2>
+                    <p>I'm currently open to remote opportunities supporting founders and teams. Feel free to reach out
+                        — I'd love to learn about your business and how I can help.</p>
+                    <div class="connect-details">
+                        <div class="connect-item">
+                            <i class="fas fa-envelope"></i>
+                            <span>deborahodekeye2017@gmail.com</span>
+                        </div>
+                        <div class="connect-item">
+                            <i class="fas fa-map-pin"></i>
+                            <span>Nigeria · Remote</span>
+                        </div>
+                    </div>
+                    <div class="connect-social">
+                        <a href="https://linkedin.com/in/gbemisola-odekeye" aria-label="LinkedIn"><i
+                                class="fab fa-linkedin-in"></i></a>
+                        <a href="https://x.com/debby_thejust" aria-label="Twitter"><i class="fab fa-x-twitter"></i></a>
+                        <a href="https://instagram.com/deborah_thejust" aria-label="Instagram"><i
+                                class="fab fa-instagram"></i></a>
+                        <a href="https://wa.me/2349058577070" target="_blank" rel="noopener noreferrer"
+                            aria-label="WhatsApp">
+                            <i class="fab fa-whatsapp"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="connect-form glass-card reveal" data-delay="0.2">
+                    <form id="contactForm" action="https://formspree.io/f/xrpzeyaw" method="POST">
+                        <div class="form-group">
+                            <input type="text" name="name" placeholder="Your name" required />
+                        </div>
+                        <div class="form-group">
+                            <input type="email" name="email" placeholder="Email address" required />
+                        </div>
+                        <div class="form-group">
+                            <textarea name="message" placeholder="Tell me how I can support you..." required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary magnetic">
+                            <i class="fas fa-paper-plane"></i> Send message
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- =============================================
+    FOOTER
+    ============================================= -->
+    <footer>
+        <div class="container">
+            <p>© 2026 Gbemisola Odekeye · Virtual Assistant</p>
+            <p class="tagline">Building systems that set you free.</p>
+        </div>
+    </footer>
+
+    <!-- =============================================
+    SCRIPTS
+    ============================================= -->
+    <script src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <script src="./script.js"></script>
+</body>
+
+</html>
