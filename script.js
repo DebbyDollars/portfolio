@@ -205,7 +205,7 @@ if (typewriterEl) {
 }
 
 // =============================================
-// TESTIMONIAL CAROUSEL (3.5s)
+// TESTIMONIAL CAROUSEL (3.5s — unchanged)
 // =============================================
 const track = document.getElementById('carouselTrack');
 const dotsContainer = document.getElementById('carouselDots');
@@ -321,123 +321,128 @@ if (nextBtn) nextBtn.addEventListener('click', () => { nextSlide(); resetAutoSli
 document.addEventListener('DOMContentLoaded', initCarousel);
 
 // =============================================
-// WORK CAROUSEL (5s)
+// WORK CAROUSEL — CONTINUOUS SLOW SCROLL ✨
 // =============================================
 const workTrack = document.getElementById('workTrack');
 const workDots = document.getElementById('workDots');
 const workPrev = document.getElementById('workPrev');
 const workNext = document.getElementById('workNext');
 
-let workIndex = 0;
-let workTotalSlides = 0;
-let workSlidesPerView = 1;
-let workAutoInterval = null;
-const workAutoDelay = 5000;
+// Hide dots and navigation for work carousel
+if (workDots) workDots.style.display = 'none';
+if (workPrev) workPrev.style.display = 'none';
+if (workNext) workNext.style.display = 'none';
 
-function getWorkSlidesPerView() {
-    return window.innerWidth >= 768 ? 2 : 1;
-}
-
-function updateWorkCarousel() {
-    workSlidesPerView = getWorkSlidesPerView();
+function initWorkContinuousScroll() {
     const cards = workTrack.querySelectorAll('.work-card');
-    workTotalSlides = cards.length;
+    const totalCards = cards.length;
 
-    if (workIndex > workTotalSlides - workSlidesPerView) {
-        workIndex = Math.max(0, workTotalSlides - workSlidesPerView);
+    console.log(`✅ Work continuous scroll initializing with ${totalCards} cards`);
+
+    if (totalCards === 0) {
+        console.warn('⚠️ No work cards found!');
+        return;
     }
 
-    const cardWidth = cards[0]?.offsetWidth || 0;
-    const gap = 24;
-    const slideWidth = cardWidth + gap;
-    const offset = workIndex * slideWidth;
+    // Clone cards for seamless looping
+    const cardsArray = Array.from(cards);
+    cardsArray.forEach(card => {
+        const clone = card.cloneNode(true);
+        // Remove any potential ID conflicts
+        clone.id = '';
+        workTrack.appendChild(clone);
+    });
 
+    // Get the width of the original set (half of total track width)
+    const totalWidth = workTrack.scrollWidth / 2;
+
+    // Set up the animation
+    const duration = 28; // seconds for a full cycle — nice and slow
+
+    // Kill any existing animations on this element
+    gsap.killTweensOf(workTrack);
+
+    // Animate continuously from right to left
     gsap.to(workTrack, {
-        x: -offset,
-        duration: 0.6,
-        ease: 'power3.out',
+        x: -totalWidth,
+        duration: duration,
+        ease: 'none',
+        repeat: -1,
+        modifiers: {
+            x: (x) => {
+                // Keep the value within bounds for smooth looping
+                const parsed = parseFloat(x);
+                if (parsed <= -totalWidth * 1.5) {
+                    return '0px';
+                }
+                return x;
+            }
+        }
     });
 
-    const dots = workDots.querySelectorAll('.dot');
-    const totalDots = Math.ceil(workTotalSlides / workSlidesPerView);
-    dots.forEach((dot, i) => {
-        dot.classList.toggle('active', i === workIndex);
-    });
-}
-
-function createWorkDots() {
-    const cards = workTrack.querySelectorAll('.work-card');
-    workTotalSlides = cards.length;
-    const totalDots = Math.ceil(workTotalSlides / getWorkSlidesPerView());
-
-    workDots.innerHTML = '';
-    for (let i = 0; i < totalDots; i++) {
-        const dot = document.createElement('button');
-        dot.className = `dot ${i === 0 ? 'active' : ''}`;
-        dot.setAttribute('aria-label', `Go to slide ${i + 1}`);
-        dot.dataset.index = i;
-        dot.addEventListener('click', () => {
-            workIndex = i;
-            updateWorkCarousel();
-            resetWorkAuto();
+    // Optional: Pause on hover for better UX
+    const wrapper = workTrack.closest('.work-carousel-wrapper');
+    if (wrapper) {
+        wrapper.addEventListener('mouseenter', () => {
+            gsap.to(workTrack, {
+                animationPlayState: 'paused',
+                duration: 0.3,
+                ease: 'power2.out',
+                onUpdate: function() {
+                    workTrack.style.animationPlayState = 'paused';
+                }
+            });
+            // Actually, with GSAP we need to pause the tween directly
+            const tweens = gsap.getTweensOf(workTrack);
+            tweens.forEach(t => t.pause());
         });
-        workDots.appendChild(dot);
+
+        wrapper.addEventListener('mouseleave', () => {
+            const tweens = gsap.getTweensOf(workTrack);
+            tweens.forEach(t => t.resume());
+        });
     }
 }
 
-function goToWorkSlide(index) {
-    const totalDots = Math.ceil(workTotalSlides / getWorkSlidesPerView());
-    if (index < 0) index = totalDots - 1;
-    if (index >= totalDots) index = 0;
-    workIndex = index;
-    updateWorkCarousel();
+// Initialize work carousel on DOM ready
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initWorkContinuousScroll);
+} else {
+    // Small delay to ensure layout is complete
+    setTimeout(initWorkContinuousScroll, 100);
 }
 
-function nextWorkSlide() { goToWorkSlide(workIndex + 1); }
-function prevWorkSlide() { goToWorkSlide(workIndex - 1); }
-
-function startWorkAuto() {
-    if (workAutoInterval) clearInterval(workAutoInterval);
-    workAutoInterval = setInterval(nextWorkSlide, workAutoDelay);
-}
-
-function resetWorkAuto() {
-    if (workAutoInterval) {
-        clearInterval(workAutoInterval);
-        startWorkAuto();
-    }
-}
-
-function initWorkCarousel() {
-    createWorkDots();
-    workIndex = 0;
-    updateWorkCarousel();
-    startWorkAuto();
-}
-
+// Handle resize for work carousel
 let workResizeTimeout;
 window.addEventListener('resize', () => {
     clearTimeout(workResizeTimeout);
     workResizeTimeout = setTimeout(() => {
-        const newSlidesPerView = getWorkSlidesPerView();
-        if (newSlidesPerView !== workSlidesPerView) {
-            createWorkDots();
-            workIndex = 0;
-            updateWorkCarousel();
-            resetWorkAuto();
-        } else {
-            updateWorkCarousel();
+        // Recalculate and restart animation
+        const tweens = gsap.getTweensOf(workTrack);
+        tweens.forEach(t => t.kill());
+
+        // Reclone and restart
+        // Remove clones first
+        const cards = workTrack.querySelectorAll('.work-card');
+        const cardsArray = Array.from(cards);
+        const originalCount = 9; // we know there are 9 originals
+
+        // Remove clones (keep first 9)
+        if (cardsArray.length > originalCount) {
+            cardsArray.slice(originalCount).forEach(clone => {
+                if (clone.parentNode) {
+                    clone.parentNode.removeChild(clone);
+                }
+            });
         }
-    }, 200);
+
+        // Re-initialize
+        initWorkContinuousScroll();
+    }, 300);
 });
 
-if (workPrev) workPrev.addEventListener('click', () => { prevWorkSlide(); resetWorkAuto(); });
-if (workNext) workNext.addEventListener('click', () => { nextWorkSlide(); resetWorkAuto(); });
-
-document.addEventListener('DOMContentLoaded', initWorkCarousel);
-
 // =============================================
-// SPOTLIGHT ON WORK CARDS
+// SPOTLIGHT ON WORK CARDS (still works)
 // =============================================
 document.querySelectorAll('.spotlight-card').forEach((card) => {
     card.addEventListener('mousemove', (e) => {
@@ -525,6 +530,5 @@ if (form) {
 // =============================================
 console.log('✨ Gbemisola Odekeye · Premium Portfolio ready!');
 console.log('🔥 Features: Lenis, GSAP, Custom Cursor, Glassmorphism, Blob, Grain, Number Counting, Typewriter Effect');
-console.log('📊 Carousel Speeds: Work = 5s | Testimonials = 3.5s');
+console.log('📊 Carousel Speeds: Work = continuous slow scroll (28s per cycle) | Testimonials = 3.5s');
 console.log('📄 Download CV buttons added in About & Booking sections');
-console.log('💼 Experience section added with 3 roles');
